@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Qt," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="description" content="Windows环境下打包发布Qt应用程序有静态编译和动态编译两种方式。静态编译较为简单，生成单一的应用程序，但体积往往较大，每次更新需要重新发布整个程序；动态编译更新方便快捷，多个Qt应用可以共享同一个Qt链接库，缺点是需要附带较多的动态链接库，稍显复杂。在此记录动态编译方式打包发布应用程序的一些相关知识和注意事项，方便日后翻阅的同时也加深自己的理解。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/05/31/hello-world/index.html">
+<meta property="og:title" content="Qt动态编译发布应用程序">
+<meta property="og:url" content="http://yoursite.com/2016/06/02/Qt动态编译发布应用程序/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
-<meta property="og:updated_time" content="2016-06-02T02:44:09.708Z">
+<meta property="og:description" content="Windows环境下打包发布Qt应用程序有静态编译和动态编译两种方式。静态编译较为简单，生成单一的应用程序，但体积往往较大，每次更新需要重新发布整个程序；动态编译更新方便快捷，多个Qt应用可以共享同一个Qt链接库，缺点是需要附带较多的动态链接库，稍显复杂。在此记录动态编译方式打包发布应用程序的一些相关知识和注意事项，方便日后翻阅的同时也加深自己的理解。">
+<meta property="og:updated_time" content="2016-06-02T02:42:09.423Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="Qt动态编译发布应用程序">
+<meta name="twitter:description" content="Windows环境下打包发布Qt应用程序有静态编译和动态编译两种方式。静态编译较为简单，生成单一的应用程序，但体积往往较大，每次更新需要重新发布整个程序；动态编译更新方便快捷，多个Qt应用可以共享同一个Qt链接库，缺点是需要附带较多的动态链接库，稍显复杂。在此记录动态编译方式打包发布应用程序的一些相关知识和注意事项，方便日后翻阅的同时也加深自己的理解。">
 
 
 
@@ -111,7 +111,7 @@
   };
 </script>
 
-  <title> Hello World | Blog </title>
+  <title> Qt动态编译发布应用程序 | Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -231,7 +231,7 @@
             
             
               
-                Hello World
+                Qt动态编译发布应用程序
               
             
           </h1>
@@ -243,8 +243,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-31T01:07:26+08:00" content="2016-05-31">
-              2016-05-31
+            <time itemprop="dateCreated" datetime="2016-06-02T10:14:31+08:00" content="2016-06-02">
+              2016-06-02
             </time>
           </span>
 
@@ -271,15 +271,95 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.<br><a id="more"></a></p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>Windows环境下打包发布Qt应用程序有静态编译和动态编译两种方式。静态编译较为简单，生成单一的应用程序，但体积往往较大，每次更新需要重新发布整个程序；动态编译更新方便快捷，多个Qt应用可以共享同一个Qt链接库，缺点是需要附带较多的动态链接库，稍显复杂。在此记录动态编译方式打包发布应用程序的一些相关知识和注意事项，方便日后翻阅的同时也加深自己的理解。<br><a id="more"></a></p>
+<h2 id="编译环境"><a href="#编译环境" class="headerlink" title="编译环境"></a>编译环境</h2><ol>
+<li><strong>IDE</strong>: Qt Creator 3.4.2    Based on Qt 5.5.0 (MSVC 2013, 32bit);</li>
+<li><strong>编译器</strong>：MSVC 2013 64 bit</li>
+</ol>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li><p>发布的程序有可能需包含以下文件：</p>
+<ul>
+<li>Qt 模块库 <ul>
+<li>Qt5Core.dll (Qt核心库)</li>
+<li>Qt5Gui.dll (Qt GUI库)</li>
+<li>Qt5Widgets.dll (Qt Widgets库，QT 5中GUI程序基本都需要此DLL，之前的GUI库被分成了GUI和Widgets两个库)</li>
+<li>还有一些Qt其它模块需要依赖的DLL，以Qt开头命名，如Qt5Xml.DLL</li>
+</ul>
+</li>
+<li>ICU（International Component for Unicode，Unicode工具）依赖库<ul>
+<li>icudt49.dll</li>
+<li>icuin49.dll</li>
+<li>icuuc49.dll</li>
+</ul>
+</li>
+<li>Qt插件库,Qt新增，注意路径<ul>
+<li>platforms/qwindows.dll（放在platforms目录下，该文件夹与生成的EXE程序位于同一路径）</li>
+<li>platforms/qminimal.dll</li>
+<li>imageformats/qico.dll</li>
+</ul>
+</li>
+<li>EGL依赖库，为OpenGL提供接口<ul>
+<li>libEGL.dll</li>
+<li>libGLESv2.dll</li>
+</ul>
+</li>
+<li>mingw依赖库(msvc编译则无需这些库)<ul>
+<li>libgcc_s_sjlj-1.dll</li>
+<li>libstdc++-6.dll</li>
+<li>libwinpthread-1.dll</li>
+</ul>
+</li>
+<li>VC运行库（mingw编译则无需这些库)<ul>
+<li>msvcr110.dll(对应VS 2012，120则对应VS 2013）</li>
+<li>msvcp110.dll</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>发布程序文件结构：</p>
+<pre><code>--platforms    [platforms文件夹与exe位于同一层目录]
+    --qwindows.dll
+    --*.dll
+--accessible    [Qt5.4中无此文件夹，故可忽略]
+    --qtaccessiblewidgets.dll  
+    --*.dll
+--(other plugin folder)
+    --*.dll
+--YourApp.exe  
+--Qt5Core.dll  
+--Qt5Gui.dll   
+--Qt5Widgets.dll
+--icudt49.dll   [5.5中为54]   
+--icuin49.dll   [同上]
+--icuuc49.dll  [同上]
+--libEGL.dll    [OpenGL相关]
+--libGLESv2.dll [OpenGL相关]
+--libgcc_s_sjlj-1.dll(mingw)    [若使用minGW编译，需要以下三个运行库]
+--libstdc++-6.dll(mingw)
+--libwinpthread-1.dll(mingw)
+--msvcr110.dll(msvc)    [若使用VC编译，需要以下两个运行库]
+--msvcp110.dll(msvc)
+</code></pre></li>
+<li><p>在程序入口加入库路径</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    QApplication::addLibraryPath(&quot;./&quot;);</span><br><span class="line">    QApplication::addLibraryPath(&quot;./plugins&quot;);</span><br><span class="line">    QApplication::addLibraryPath(&quot;./platforms&quot;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>错误提示</p>
+<ul>
+<li>若出现0xc000007b 错误，考虑是VC运行库问题，注意检查文件结构是否正确，是否已将所有必需DLL放入，及是否在程序中加入库路径； </li>
+<li>若提示缺失DLL，将该DLL放入正确位置即可，注意DLL的版本务必与编译环境匹配；</li>
+</ul>
+</li>
+</ol>
+<h2 id="特别提醒"><a href="#特别提醒" class="headerlink" title="特别提醒"></a>特别提醒</h2><ol>
+<li><p>DLL的版本需与编译环境相适配，Qt模块的依赖DLL应来自Qt\Qt5.5.0\5.5\msvc2013_64\bin ，而非QtCreator目录下；其他DLL也请注意拷贝正确版本，复制DLL时务必小心，保证版本适配；</p>
+</li>
+<li><p>DLL文件名中以d 结尾的为Debug版本，适用于QtCreator 生成的Debug版程序，Release版DLL无特殊标记。</p>
+</li>
+<li><p>寻找必需DLL时也可参考QtCreator的文件结构及DLL组成，但请勿直接从中拷贝，一般无法适配。</p>
+</li>
+<li><p>可通过在目标系统上不断运行发布程序来寻找必需文件，也可使用某些软件如depends来寻找。注意尽量精简DLL，去除不必要的DLL文件。</p>
+</li>
+</ol>
 
       
     </div>
@@ -299,18 +379,24 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Qt/" rel="tag">#Qt</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/05/31/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/06/02/Qt动态编译发布应用程序/" rel="prev" title="Qt动态编译发布应用程序">
-                Qt动态编译发布应用程序 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -417,7 +503,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#编译环境"><span class="nav-number">1.</span> <span class="nav-text">编译环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">2.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特别提醒"><span class="nav-number">3.</span> <span class="nav-text">特别提醒</span></a></li></ol></div>
             
           </div>
         </section>
